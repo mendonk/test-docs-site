@@ -63,12 +63,12 @@ jobs:
      - name: Deploy to GitHub Pages
        uses: peaceiris/actions-gh-pages@v3
        with:
-          personal_token: "${{ secrets.PUBLISH_STARGATE_DOCS }}"
-          external_repository: stargate/website
-          publish_branch: 'gh-pages'
-          publish_dir: "${{ env.SITE_DIR }}"
-          destination_dir: docs
-          disable_nojekyll: true
+#         personal_token: "${{ secrets.PUBLISH_STARGATE_DOCS }}"
+#         external_repository: stargate/website
+        GITHUB_TOKEN: "${{ github.token}}"
+        FOLDER: "${{ env.SITE_DIR }}"
+        BRANCH: 'gh-pages'
+        COMMIT_MESSAGE: "[CI] Publish Documentation for ${{ github.sha }}"
   
   spellcheck:
     runs-on: ubuntu-latest
