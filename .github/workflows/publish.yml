@@ -1,9 +1,13 @@
-name: "Antora Site"
-description: "Generate the Antora site"
-branding:
+---
+name: Antora Site
+on:
+  - push
+  
+  description: "Generate the Antora site"
+  branding:
   icon: book-open
   color: yellow
-inputs:
+  inputs:
   antora_playbook:
     description: 'The Antora playbook file'
     required: true
@@ -11,7 +15,7 @@ inputs:
   site_sources_path:
     description: 'The path relative to workspace root, where the asciidoc sources exits'
     required: false
-runs:
+  runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
