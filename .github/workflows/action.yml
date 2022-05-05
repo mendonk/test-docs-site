@@ -1,7 +1,5 @@
-name: Publish docs
-
+name: publish-docs
 on: [push]
-
 env:
   SITE_DIR: 'site'
 jobs:
