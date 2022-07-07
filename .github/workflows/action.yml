@@ -59,8 +59,8 @@ jobs:
         known_hosts: unnecessary
 
 # append known hosts    
-     - name: Add Known Hosts
-       run: ssh-keyscan -p ${{ secrets.SSH_PORT }} -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+#     - name: Add Known Hosts
+#       run: ssh-keyscan -p ${{ secrets.SSH_PORT }} -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
 #scp copy
      - name: copy file via ssh key
