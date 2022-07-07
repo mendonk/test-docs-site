@@ -56,14 +56,14 @@ jobs:
 #       with:
 #        key: ${{ secrets.SSH_PRIVATE_KEY }} 
 #        name: github-actions
-#        known_hosts: ${{ secrets.SSH_HOST }}
+#        known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
 
 #scp copy
      - name: copy file via ssh key
        uses: appleboy/scp-action@master
        with:
-         host: ${{ secrets.HOST }}
-         username: ${{ secrets.USERNAME }}
+         host: ${{ secrets.SSH_HOST }}
+         username: ${{ secrets.SSH_USER }}
          key: ${{ secrets.SSH_PRIVATE_KEY }}
          source: "${{ github.workspace }}/${{ env.SITE_DIR }}"
-         target: "test"
+         target: "scp-test"
