@@ -63,6 +63,7 @@ jobs:
        with:
         local: "${{ github.workspace }}/build/${{ env.SITE_DIR }}"
         remote: coppi-ssh.sjc.dsinternal.org
+        host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USER }}
         password: ${{ secrets.PASSWORD }}
         privateKey: ${{ secrets.PRIVATE_KEY}}
