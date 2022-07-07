@@ -50,7 +50,14 @@ jobs:
          name: site
          path: "${{ github.workspace }}/${{ env.SITE_DIR }}"
 
-# scp copy
+# add SSH for secure copy
+     - name: Install SSH Key
+       uses: shimataro/ssh-key-action@v2
+       with:
+        key: ${{ secrets.SSH_PRIVATE_KEY }} 
+        name: github-actions
+        known_hosts: ${{ secrets.SSH_HOST }}
+#scp copy
      - name: Secure copy with ENV
        uses: garygrossgarten/github-action-scp@release
        with:
