@@ -19,7 +19,7 @@ jobs:
        uses: shimataro/ssh-key-action@v2
        with:
          key: ${{ secrets.SSH_PRIVATE_KEY }} 
-         name: id_rsa
+         name: github-actions
          known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
 
 # append known hosts    
@@ -34,12 +34,3 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         PORT: ${{ secrets.SSH_PORT }}
         script: whoami
-
-     - name: Executing remote command
-       uses: appleboy/ssh-action@master
-       with:
-         HOST: ${{ secrets.SSH_HOST }}
-         USERNAME: ${{ secrets.SSH_USER }}
-         PORT: ${{ secrets.SSH_PORT }}
-         KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-         script: ls
