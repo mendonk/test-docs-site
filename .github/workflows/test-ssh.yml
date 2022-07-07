@@ -27,17 +27,17 @@ jobs:
        run: ssh-keyscan -p ${{ secrets.SSH_PORT }} -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts    
        
      - name: executing remote ssh commands using ssh key
-        uses: appleboy/ssh-action@master
-        with:
+       uses: appleboy/ssh-action@master
+       with:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         PORT: ${{ secrets.SSH_PORT }}
         script: whoami
 
-      - name: Executing remote command
-         uses: appleboy/ssh-action@master
-         with:
+     - name: Executing remote command
+       uses: appleboy/ssh-action@master
+       with:
          HOST: ${{ secrets.SSH_HOST }}
          USERNAME: ${{ secrets.SSH_USER }}
          PORT: ${{ secrets.SSH_PORT }}
