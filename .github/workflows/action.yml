@@ -62,7 +62,7 @@ jobs:
      - name: copy file via ssh key
        uses: appleboy/scp-action@master
        with:
-         host: ${{ secrets.SSH_HOST }}
+         host: ${{ secrets.SSH_KNOWN_HOSTS }}
          username: ${{ secrets.SSH_USER }}
          key: ${{ secrets.SSH_PRIVATE_KEY }}
          source: "${{ github.workspace }}/${{ env.SITE_DIR }}"
