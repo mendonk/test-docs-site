@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - coppi-publish-action
+      - add-actions
       
 env:
   SITE_DIR: 'site'
