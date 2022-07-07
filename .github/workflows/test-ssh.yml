@@ -21,3 +21,12 @@ jobs:
          key: ${{ secrets.SSH_PRIVATE_KEY }}
          port: ${{ secrets.SSH_PORT }}
          script: whoami
+
+      - name: Executing remote command
+        uses: appleboy/ssh-action@master
+        with:
+         HOST: ${{ secrets.SSH_HOST }}
+         USERNAME: ${{ secrets.SSH_USER }}
+         PORT: ${{ secrets.SSH_PORT }}
+         KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+         script: ls
