@@ -16,16 +16,16 @@ jobs:
       - name: executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@master
         with:
-         host: coppi-ssh.sjc.dsinternal.org
+         host: ${{ secrets.SSH_HOST }}
          username: ${{ secrets.SSH_USER }}
          key: ${{ secrets.SSH_PRIVATE_KEY }}
-         port: 22
+         PORT: ${{ secrets.SSH_PORT }}
          script: whoami
 
       - name: Executing remote command
         uses: appleboy/ssh-action@master
         with:
-         HOST: coppi-ssh.sjc.dsinternal.org
+         HOST: ${{ secrets.SSH_HOST }}
          USERNAME: ${{ secrets.SSH_USER }}
          PORT: ${{ secrets.SSH_PORT }}
          KEY: ${{ secrets.SSH_PRIVATE_KEY }}
