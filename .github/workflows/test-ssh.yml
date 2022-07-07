@@ -7,7 +7,7 @@ on:
       - add-actions
       
 #env:
-#  SITE_DIR: 'site'
+##  SITE_DIR: 'site'
 jobs:
   build:
     name: Build
