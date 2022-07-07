@@ -71,4 +71,4 @@ jobs:
          key: ${{ secrets.SSH_PRIVATE_KEY }}
          port: ${{ secrets.SSH_PORT }}
          source: "${{ github.workspace }}/${{ env.SITE_DIR }}"
-         target: "~/scp-test"
+         target: ~/
