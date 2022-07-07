@@ -6,25 +6,38 @@ on:
       - main
       - add-actions
       
-env:
-  SITE_DIR: 'site'
+#env:
+#  SITE_DIR: 'site'
+
 jobs:
   test_ssh:
     name: "Test SSH"
     runs-on: ubuntu-latest
     steps:
-      - name: executing remote ssh commands using ssh key
+# add SSH known hosts for secure copy
+     - name: Install SSH Key
+       uses: shimataro/ssh-key-action@v2
+       with:
+         key: ${{ secrets.SSH_PRIVATE_KEY }} 
+         name: id_rsa
+         known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
+
+# append known hosts    
+     - name: Add Known Hosts
+       run: ssh-keyscan -p ${{ secrets.SSH_PORT }} -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts    
+       
+     - name: executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@master
         with:
-         host: ${{ secrets.SSH_HOST }}
-         username: ${{ secrets.SSH_USER }}
-         key: ${{ secrets.SSH_PRIVATE_KEY }}
-         PORT: ${{ secrets.SSH_PORT }}
-         script: whoami
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USER }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        PORT: ${{ secrets.SSH_PORT }}
+        script: whoami
 
       - name: Executing remote command
-        uses: appleboy/ssh-action@master
-        with:
+         uses: appleboy/ssh-action@master
+         with:
          HOST: ${{ secrets.SSH_HOST }}
          USERNAME: ${{ secrets.SSH_USER }}
          PORT: ${{ secrets.SSH_PORT }}
