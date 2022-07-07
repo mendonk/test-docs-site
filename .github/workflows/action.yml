@@ -70,7 +70,7 @@ jobs:
        with:
          host: ${{ secrets.SSH_HOST }}
          username: ${{ secrets.SSH_USER }}
-         key: ${{ secrets.SSH_DEPLOY_KEY }}
+         key: ${{ secrets.DEPLOY_KEY }}
          port: ${{ secrets.SSH_PORT }}
          source: "${{ github.workspace }}/${{ env.SITE_DIR }}"
          target: ~/
