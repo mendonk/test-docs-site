@@ -7,23 +7,18 @@ on:
       
 env:
   SITE_DIR: 'site'
-  SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-  SSH_PUBLIC_KEY: ${{ secrets.SSH_PUBLIC_KEY }}
-  SSH_USER: ${{ secrets.SSH_USER }}
-  SSH_PASSWORD: ${{ secrets.PASSWORD }}
-  SSH_PORT: ${{ secrets.SSH_PORT }} 
-  SSH_HOST: ${{ secrets.SSH_HOST }}
+
 jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-    steps:
-    
-    - name: executing remote ssh commands using password
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.SSH_HOST }}
-        username: ${{ secrets.SSH_USERNAME }}
-        password: ${{ secrets.PASSWORD }}
-        port: ${{ secrets.SSH_PORT }}
-        script: whoami
+    steps: 
+
+  - name: Executing remote ssh commands using ssh key 
+    uses: appleboy/ssh-action@master
+    with:
+      host: ${{ secrets.SSH_HOST }}
+      username: ${{ secrets.SSH_USERNAME }}
+      key: ${{ secrets.SSH_PRIVATE_KEY }}
+      port: ${{ secrets.SSH_PORT }}
+      script: whoami
