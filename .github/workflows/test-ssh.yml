@@ -8,6 +8,12 @@ on:
       
 env:
   SITE_DIR: 'site'
+  SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY}}
+  SSH_PUBLIC_KEY: ${{ secrets.SSH_PUBLIC_KEY }}
+  SSH_USER: ${{ secrets.SSH_USER }}
+  SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
+  SSH_PORT: ${{ secrets.SSH_PORT }} 
+  SSH_HOST: ${{ secrets.SSH_HOST }}
 jobs:
   build:
     name: Build
