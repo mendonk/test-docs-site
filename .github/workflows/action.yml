@@ -78,5 +78,5 @@ jobs:
          username: ${{ secrets.SSH_USER }}
          key: ${{ secrets.SSH_PRIVATE_KEY }}
          port: ${{ secrets.SSH_PORT }}
-         source: "site.zip"
+         source: site
          target: .
