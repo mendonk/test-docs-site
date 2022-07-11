@@ -8,7 +8,7 @@ on:
       
 env:
   SITE_DIR: 'site'
-  SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY}}
+  SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
   SSH_PUBLIC_KEY: ${{ secrets.SSH_PUBLIC_KEY }}
   SSH_USER: ${{ secrets.SSH_USER }}
   SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
@@ -78,5 +78,5 @@ jobs:
          username: ${{ secrets.SSH_USER }}
          key: ${{ secrets.SSH_PRIVATE_KEY }}
          port: ${{ secrets.SSH_PORT }}
-         source: "site.zip"
+         source: "${{ github.workspace }}/build/${{ env.SITE_DIR }}"
          target: project
