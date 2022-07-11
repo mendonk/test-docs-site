@@ -9,6 +9,7 @@ on:
 env:
   SITE_DIR: 'site'
   SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY}}
+  SSH_PUBLIC_KEY: ${{ secrets.SSH_PUBLIC_KEY }}
   SSH_USER: ${{ secrets.SSH_USER }}
   SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
   SSH_PORT: ${{ secrets.SSH_PORT }} 
@@ -66,8 +67,8 @@ jobs:
          known_hosts: unnecessary
 
 # append known hosts    
-     - name: Add Known Hosts
-       run: ssh-keyscan -p ${{ secrets.SSH_PORT }} -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+#     - name: Add Known Hosts
+#       run: ssh-keyscan -p ${{ secrets.SSH_PORT }} -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
 #scp copy
      - name: copy file via ssh key
