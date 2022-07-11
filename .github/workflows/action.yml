@@ -53,12 +53,12 @@ jobs:
          path: "${{ github.workspace }}/${{ env.SITE_DIR }}"
 
 # add SSH known hosts for secure copy
-#     - name: Install SSH Key
-#       uses: shimataro/ssh-key-action@v2
-#       with:
-#         key: ${{ secrets.SSH_PRIVATE_KEY }} 
-#         name: github-actions
-#         known_hosts: unnecessary
+     - name: Install SSH Key
+       uses: shimataro/ssh-key-action@v2
+       with:
+         key: ${{ secrets.SSH_PRIVATE_KEY }} 
+         name: github-actions
+         known_hosts: unnecessary
 
 # append known hosts    
 #     - name: Add Known Hosts
