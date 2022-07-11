@@ -73,6 +73,7 @@ jobs:
        with:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USER }}
+        password: ${{ secrets.password }}
         port: ${{ secrets.SSH_PORT }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         source: "site"
