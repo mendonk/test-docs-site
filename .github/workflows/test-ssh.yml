@@ -12,7 +12,7 @@ env:
   SSH_USER: ${{ secrets.SSH_USER }}
   SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
   SSH_PORT: ${{ secrets.SSH_PORT }} 
-  SSH_HOST: ${{ secrets.SSH_HOST }}
+  SSH_HOST: ${{ secrets.SSH_KNOWN_HOSTS }}
 jobs:
   build:
     name: Build
@@ -22,7 +22,7 @@ jobs:
     - name: executing remote ssh commands using ssh key
       uses: appleboy/ssh-action@master
       with:
-       host: ${{ secrets.SSH_HOST }}
+       host: ${{ secrets.SSH_KNOWN_HOSTS }}
        username: ${{ secrets.SSH_USER }}
        key: ${{ secrets.SSH_PRIVATE_KEY }}
        port: ${{ secrets.SSH_PORT }}
