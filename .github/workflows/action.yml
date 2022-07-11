@@ -55,7 +55,7 @@ jobs:
   secure_copy:
     runs-on: ubuntu-latest
     needs: [deploy_site]
-    name: "Secure copy site"
+    name: "Secure copy site to coppi"
     steps:
 # add SSH known hosts for secure copy
      - name: Install SSH Key
@@ -66,12 +66,8 @@ jobs:
          known_hosts: unnecessary
 
 # append known hosts    
-     - name: Add Known Hosts
-       run: ssh-keyscan -p ${{ secrets.SSH_PORT }} -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
-
-#  scp_deploy_to_coppi:
-#    runs-on: ubuntu-latest
-#    needs: [deploy_site]
+#     - name: Add Known Hosts
+#       run: ssh-keyscan -p ${{ secrets.SSH_PORT }} -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
   
      - name: copy file via ssh key
        uses: appleboy/scp-action@master
