@@ -22,8 +22,8 @@ jobs:
     - name: executing remote ssh commands using ssh key
       uses: appleboy/ssh-action@master
       with:
-       host: ${{ secrets.SSH_KNOWN_HOSTS }}
-       username: ${{ secrets.SSH_USER }}
-       key: ${{ secrets.SSH_PRIVATE_KEY }}
-       port: ${{ secrets.SSH_PORT }}
+       host: ${{ env.SSH_KNOWN_HOSTS }}
+       username: ${{ envSSH_USER }}
+       key: ${{ env.SSH_PRIVATE_KEY }}
+       port: ${{ env.SSH_PORT }}
        script: whoami
