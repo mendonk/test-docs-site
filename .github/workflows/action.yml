@@ -66,8 +66,8 @@ jobs:
          known_hosts: unnecessary
 
 # append known hosts    
-#     - name: Add Known Hosts
-#       run: ssh-keyscan -p ${{ secrets.SSH_PORT }} -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+     - name: Add Known Hosts
+       run: ssh-keyscan -p ${{ secrets.SSH_PORT }} -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
 #  scp_deploy_to_coppi:
 #    runs-on: ubuntu-latest
@@ -78,7 +78,7 @@ jobs:
        with:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USER }}
-        password: ${{ secrets.PASSWORD }}
+#        password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.SSH_PORT }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         source: "site"
