@@ -6,8 +6,8 @@ on:
       - main
       - add-actions
       
-#env:
-##  SITE_DIR: 'site'
+env:
+  SITE_DIR: 'site'
 jobs:
   build:
     name: Build

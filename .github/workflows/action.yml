@@ -6,8 +6,8 @@ on:
       - main
       - add-actions
       
-#env:
-#  SITE_DIR: 'site'
+env:
+  SITE_DIR: 'site'
 
 jobs:
   build_site:
@@ -62,7 +62,7 @@ jobs:
 
 # append known hosts    
      - name: Add Known Hosts
-       run: ssh-keyscan -p ${{ secrets.SSH_PORT }} -H ${{ secrets.SSH_HOST }} >> ~/github/home/.ssh/known_hosts
+       run: ssh-keyscan -p ${{ secrets.SSH_PORT }} -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
 #scp copy
      - name: copy file via ssh key
