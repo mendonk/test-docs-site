@@ -54,7 +54,7 @@ jobs:
   
   secure_copy:
     runs-on: ubuntu-latest
-    needs: [deploy-site]
+    needs: [deploy_site]
     name: "Secure copy site"
     steps:
 # add SSH known hosts for secure copy
